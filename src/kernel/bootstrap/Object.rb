@@ -407,7 +407,7 @@ class Object
         cl = self.__class_for_extend
       end
       modules.each do |a_module|
-        cl.__include_module(a_module)
+        a_module.extend_object(cl)
         if a_module.respond_to? :extended
           a_module.extended(self)
         end

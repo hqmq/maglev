@@ -112,6 +112,12 @@ class Module
   def included(a_module)
   end
 
+  # Extends the specified object by adding this module’s constants and methods.
+  # This is the callback method used by Object#extend.
+  def extend_object(an_object)
+    an_object.__include_module(self)
+  end
+
   # Callback invoked whenever the receiver is used to extend an object.
   # The object is passed as a paramter.
   def extended(a_module)
